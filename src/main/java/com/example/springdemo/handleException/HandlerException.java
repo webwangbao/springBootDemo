@@ -26,7 +26,7 @@ public class HandlerException {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ResponseStatus handleException(HttpServletResponse response,Exception e){
-        logger.error("错误信息e = {}",e);
+        logger.error("错误信息e = {}",e.toString());
         response.setStatus(506);
         return ResultUtils.error();
 
