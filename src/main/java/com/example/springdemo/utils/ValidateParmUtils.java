@@ -11,19 +11,19 @@ import org.springframework.validation.ObjectError;
  */
 public class ValidateParmUtils {
 
-    public static void validateParm(BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public static void validateParm(BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             String errorMessage = getMessage(bindingResult);
-            if(!StringUtils.isEmpty(errorMessage)){
-                ResponseEnum.VALIDATE_PARM_ERROR.setMessage("前端校验参数不合法"+errorMessage);
+            if (!StringUtils.isEmpty(errorMessage)) {
+                ResponseEnum.VALIDATE_PARM_ERROR.setMessage("前端校验参数不合法" + errorMessage);
             }
-            throw new commonException(ResponseEnum.VALIDATE_PARM_ERROR);
+            throw new commonException(ResponseEnum.VALIDATE_PARM_ERROR.getCode(),ResponseEnum.VALIDATE_PARM_ERROR.getMessage());
         }
     }
 
-    public static String getMessage(BindingResult bindingResult){
+    public static String getMessage(BindingResult bindingResult) {
         StringBuilder sb = new StringBuilder();
-        for(ObjectError message : bindingResult.getAllErrors()){
+        for (ObjectError message : bindingResult.getAllErrors()) {
             sb.append(message).append(",");
         }
         return sb.toString();

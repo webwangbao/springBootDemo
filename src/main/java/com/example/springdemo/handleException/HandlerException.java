@@ -1,5 +1,6 @@
 package com.example.springdemo.handleException;
 
+import com.alibaba.fastjson.JSON;
 import com.example.springdemo.exception.commonException;
 import com.example.springdemo.utildomain.ResponseStatus;
 import com.example.springdemo.utils.ResultUtils;
@@ -13,20 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 
 @ControllerAdvice
 public class HandlerException {
-    private static final Logger  logger = LoggerFactory.getLogger(HandlerException.class);
+    private static final Logger logger = LoggerFactory.getLogger(HandlerException.class);
 
     @ExceptionHandler(value = commonException.class)
     @ResponseBody
-    public ResponseStatus handleCommectionException(HttpServletResponse response,commonException e){
-        logger.error("错误信息是 e = {}",e.toString());
+    public ResponseStatus handleCommectionException(HttpServletResponse response, commonException e) {
+        logger.error("错误信息是 e = {}", e.getMessage());
         response.setStatus(405);
-        return ResultUtils.error(e.getResponseEnum());
+        return ResultUtils.error(e.getCode(),e.getMessage());
     }
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public ResponseStatus handleException(HttpServletResponse response,Exception e){
-        logger.error("错误信息e = {}",e.toString());
+    public ResponseStatus handleException(HttpServletResponse response, Exception e) {
+        logger.error("错误信息e = {}", JSON.toJSONString(e));
         response.setStatus(506);
         return ResultUtils.error();
 

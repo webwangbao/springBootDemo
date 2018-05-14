@@ -29,6 +29,7 @@ public class HttpAspect {
 
     /**
      * 在切点之前获取请求相关信息
+     *
      * @param joinPoint
      */
     @Before("log()")
@@ -51,7 +52,7 @@ public class HttpAspect {
             httpInfo.append(JsonUtils.objectToJson(map));
         }
         httpInfo.append("]");
-        logger.info("request = {}",httpInfo);
+        logger.info("request = {}", httpInfo);
 
     }
 
@@ -61,6 +62,7 @@ public class HttpAspect {
 
     /**
      * 记录请求完成之后的响应体
+     *
      * @param object
      */
     @AfterReturning(returning = "object", pointcut = "log()")

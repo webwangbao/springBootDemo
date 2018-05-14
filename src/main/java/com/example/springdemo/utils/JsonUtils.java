@@ -18,6 +18,7 @@ public class JsonUtils {
      * 将对象转换成json字符串。
      * <p>Title: pojoToJson</p>
      * <p>Description: </p>
+     *
      * @param data
      * @return
      */
@@ -47,15 +48,17 @@ public class JsonUtils {
         }
         return null;
     }
+
     /**
      * 将json数据转换成pojo对象list
      * <p>Title: jsonToList</p>
      * <p>Description: </p>
+     *
      * @param jsonData
      * @param beanType
      * @return
      */
-    public static <T>List<T> jsonToList(String jsonData, Class<T> beanType) {
+    public static <T> List<T> jsonToList(String jsonData, Class<T> beanType) {
         JavaType javaType = MAPPER.getTypeFactory().constructParametricType(List.class, beanType);
         try {
             List<T> list = MAPPER.readValue(jsonData, javaType);

@@ -1,5 +1,6 @@
 package com.example.springdemo.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.example.springdemo.domain.User;
 import com.example.springdemo.mapper.UserMapper;
 import com.example.springdemo.service.UerService;
@@ -18,9 +19,9 @@ public class UserServiceImpl implements UerService {
 
     @Override
     public User getUserById(Integer id) {
-        logger.info("通过ID查询user参数id = {}",id);
+        logger.info("通过ID查询user参数id = {}", id);
         User user = userMapper.getUserById(id);
-        logger.info("调用usermapper产生结果user = {}",user);
+        logger.info("调用usermapper产生结果user = {}", JSON.toJSONString(user));
         return user;
     }
 }

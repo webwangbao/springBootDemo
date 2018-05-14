@@ -20,7 +20,6 @@ public class ResponseStatus<T> {
     }
 
 
-
     public Integer getCode() {
         return code;
     }

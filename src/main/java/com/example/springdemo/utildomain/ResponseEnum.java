@@ -4,14 +4,12 @@ package com.example.springdemo.utildomain;
  * 枚举类型
  */
 public enum ResponseEnum {
-    SUCESS(200,"成功"),
-    ERROR(000,"失败"),
-    VALIDATE_PARM_ERROR(1000,"前端参数不合法"),
-    NOT_FIND_USER_BY_ID(1001,"根据id没有查询到用户"),
-    ;
+    SUCESS(200, "成功"),
+    ERROR(000, "失败"),
+    VALIDATE_PARM_ERROR(1000, "前端参数不合法"),
+    NOT_FIND_USER_BY_ID(1001, "根据id没有查询到用户"),;
     private Integer code;
     private String message;
-
 
 
     ResponseEnum(Integer code, String message) {
