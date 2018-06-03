@@ -1,0 +1,44 @@
+2018-05-11 22:53:17,017  INFO Version:21 - HV000001: Hibernate Validator 6.0.9.Final
+2018-05-11 22:53:17,269  INFO SpringdemoApplication:50 - Starting SpringdemoApplication on COKPGT8ZUTODL5N with PID 129168 (D:\IntellJIDEA-Projects\springboot\target\classes started by Administrator in D:\IntellJIDEA-Projects\springboot)
+2018-05-11 22:53:17,271  INFO SpringdemoApplication:663 - The following profiles are active: dev
+2018-05-11 22:53:17,402  INFO AnnotationConfigServletWebServerApplicationContext:590 - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@626abbd0: startup date [Fri May 11 22:53:17 GMT+08:00 2018]; root of context hierarchy
+2018-05-11 22:53:19,355  INFO TomcatWebServer:91 - Tomcat initialized with port(s): 8080 (http)
+2018-05-11 22:53:19,499  INFO ContextLoader:285 - Root WebApplicationContext: initialization completed in 2102 ms
+2018-05-11 22:53:19,680  INFO ServletRegistrationBean:185 - Servlet dispatcherServlet mapped to [/]
+2018-05-11 22:53:19,686  INFO FilterRegistrationBean:244 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-05-11 22:53:19,686  INFO FilterRegistrationBean:244 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-05-11 22:53:19,686  INFO FilterRegistrationBean:244 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-05-11 22:53:19,687  INFO FilterRegistrationBean:244 - Mapping filter: 'requestContextFilter' to: [/*]
+2018-05-11 22:53:20,194  INFO SimpleUrlHandlerMapping:373 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-11 22:53:20,767  INFO RequestMappingHandlerAdapter:574 - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@626abbd0: startup date [Fri May 11 22:53:17 GMT+08:00 2018]; root of context hierarchy
+2018-05-11 22:53:20,839  INFO RequestMappingHandlerMapping:547 - Mapped "{[/user/getUser/{id}],methods=[GET]}" onto public com.example.springdemo.utildomain.ResponseStatus com.example.springdemo.controller.UserController.getUserById(java.lang.Integer)
+2018-05-11 22:53:20,842  INFO RequestMappingHandlerMapping:547 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-05-11 22:53:20,844  INFO RequestMappingHandlerMapping:547 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-05-11 22:53:20,895  INFO SimpleUrlHandlerMapping:373 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-11 22:53:20,895  INFO SimpleUrlHandlerMapping:373 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-11 22:53:20,917  INFO ExceptionHandlerExceptionResolver:288 - Detected @ExceptionHandler methods in handlerException
+2018-05-11 22:53:21,013  INFO MapperCacheDisabler:60 - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2018-05-11 22:53:21,014  INFO MapperCacheDisabler:60 - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2018-05-11 22:53:21,015  INFO MapperCacheDisabler:60 - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2018-05-11 22:53:21,017  INFO MapperCacheDisabler:83 - Clear EntityHelper entityTableMap cache.
+2018-05-11 22:53:21,350  INFO AnnotationMBeanExporter:433 - Registering beans for JMX exposure on startup
+2018-05-11 22:53:21,353  INFO AnnotationMBeanExporter:895 - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-05-11 22:53:21,360  INFO AnnotationMBeanExporter:668 - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-05-11 22:53:21,400  INFO TomcatWebServer:206 - Tomcat started on port(s): 8080 (http) with context path ''
+2018-05-11 22:53:21,405  INFO SpringdemoApplication:59 - Started SpringdemoApplication in 4.602 seconds (JVM running for 5.695)
+2018-05-11 22:53:30,163  INFO DispatcherServlet:494 - FrameworkServlet 'dispatcherServlet': initialization started
+2018-05-11 22:53:30,191  INFO DispatcherServlet:509 - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+2018-05-11 22:53:30,230  INFO HttpAspect:55 - request = [URI=/user/getUser/1][method=GET][ip=0:0:0:0:0:0:0:1][params=]
+2018-05-11 22:53:30,233  INFO UserController:29 - getUserById方法接受前端参数ID = 1
+2018-05-11 22:53:30,233  INFO UserServiceImpl:22 - 通过ID查询user参数id = 1
+2018-05-11 22:53:30,251  INFO HikariDataSource:110 - HikariPool-1 - Starting...
+2018-05-11 22:53:30,492  INFO HikariDataSource:123 - HikariPool-1 - Start completed.
+2018-05-11 22:53:30,617  INFO UserServiceImpl:24 - 调用usermapper产生结果user = {"age":18,"id":1,"name":"王豹"}
+2018-05-11 22:53:30,618  INFO UserController:31 - 调用userservice的getUserById方法结果是user = {"age":18,"id":1,"name":"王豹"}
+2018-05-11 22:53:30,673  INFO HttpAspect:70 - response={"code":200,"message":"成功","data":{"id":1,"name":"王豹","age":18}}
+2018-05-11 22:53:53,922  INFO HttpAspect:55 - request = [URI=/user/getUser/2][method=GET][ip=0:0:0:0:0:0:0:1][params=]
+2018-05-11 22:53:53,923  INFO UserController:29 - getUserById方法接受前端参数ID = 2
+2018-05-11 22:53:53,923  INFO UserServiceImpl:22 - 通过ID查询user参数id = 2
+2018-05-11 22:53:53,929  INFO UserServiceImpl:24 - 调用usermapper产生结果user = null
+2018-05-11 22:53:53,930  INFO UserController:31 - 调用userservice的getUserById方法结果是user = null
+2018-05-11 22:53:53,933 ERROR HandlerException:22 - 错误信息是 e = 根据id没有查询到用户

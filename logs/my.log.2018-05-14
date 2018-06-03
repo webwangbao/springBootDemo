@@ -1,0 +1,22 @@
+2018-05-11 22:53:17,269  INFO SpringdemoApplication:50 ---- Starting SpringdemoApplication on COKPGT8ZUTODL5N with PID 129168 (D:\IntellJIDEA-Projects\springboot\target\classes started by Administrator in D:\IntellJIDEA-Projects\springboot)
+2018-05-11 22:53:17,270 DEBUG SpringdemoApplication:53 ---- Running with Spring Boot v2.0.1.RELEASE, Spring v5.0.5.RELEASE
+2018-05-11 22:53:17,271  INFO SpringdemoApplication:663 ---- The following profiles are active: dev
+2018-05-11 22:53:21,405  INFO SpringdemoApplication:59 ---- Started SpringdemoApplication in 4.602 seconds (JVM running for 5.695)
+2018-05-11 22:53:30,230  INFO HttpAspect:55 ---- request = [URI=/user/getUser/1][method=GET][ip=0:0:0:0:0:0:0:1][params=]
+2018-05-11 22:53:30,233  INFO UserController:29 ---- getUserById方法接受前端参数ID = 1
+2018-05-11 22:53:30,233  INFO UserServiceImpl:22 ---- 通过ID查询user参数id = 1
+2018-05-11 22:53:30,499 DEBUG getUserById:159 ---- ==>  Preparing: select * from tb_user where id = ? 
+2018-05-11 22:53:30,517 DEBUG getUserById:159 ---- ==> Parameters: 1(Integer)
+2018-05-11 22:53:30,532 DEBUG getUserById:159 ---- <==      Total: 1
+2018-05-11 22:53:30,617  INFO UserServiceImpl:24 ---- 调用usermapper产生结果user = {"age":18,"id":1,"name":"王豹"}
+2018-05-11 22:53:30,618  INFO UserController:31 ---- 调用userservice的getUserById方法结果是user = {"age":18,"id":1,"name":"王豹"}
+2018-05-11 22:53:30,673  INFO HttpAspect:70 ---- response={"code":200,"message":"成功","data":{"id":1,"name":"王豹","age":18}}
+2018-05-11 22:53:53,922  INFO HttpAspect:55 ---- request = [URI=/user/getUser/2][method=GET][ip=0:0:0:0:0:0:0:1][params=]
+2018-05-11 22:53:53,923  INFO UserController:29 ---- getUserById方法接受前端参数ID = 2
+2018-05-11 22:53:53,923  INFO UserServiceImpl:22 ---- 通过ID查询user参数id = 2
+2018-05-11 22:53:53,926 DEBUG getUserById:159 ---- ==>  Preparing: select * from tb_user where id = ? 
+2018-05-11 22:53:53,927 DEBUG getUserById:159 ---- ==> Parameters: 2(Integer)
+2018-05-11 22:53:53,929 DEBUG getUserById:159 ---- <==      Total: 0
+2018-05-11 22:53:53,929  INFO UserServiceImpl:24 ---- 调用usermapper产生结果user = null
+2018-05-11 22:53:53,930  INFO UserController:31 ---- 调用userservice的getUserById方法结果是user = null
+2018-05-11 22:53:53,933 ERROR HandlerException:22 ---- 错误信息是 e = 根据id没有查询到用户
