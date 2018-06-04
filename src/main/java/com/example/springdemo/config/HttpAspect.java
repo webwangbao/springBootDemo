@@ -1,15 +1,21 @@
 package com.example.springdemo.config;
 
+import com.example.springdemo.utils.DateUtils;
 import com.example.springdemo.utils.JsonUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,20 +24,12 @@ import java.util.Map;
 @Component
 public class HttpAspect {
 
-    private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
-    /**
-     * 定义切点
-     */
     @Pointcut("execution(public * com.example.springdemo.controller.*.*(..))")
     public void log() {
     }
 
-    /**
-     * 在切点之前获取请求相关信息
-     *
-     * @param joinPoint
-     */
     @Before("log()")
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -39,19 +37,27 @@ public class HttpAspect {
 
         StringBuilder httpInfo = new StringBuilder();
 
-        Map<String, String> map = new HashMap<>();
-        Enumeration<String> enu = request.getParameterNames();
-        while (enu.hasMoreElements()) {
-            String paraName = enu.nextElement();
-            map.put(paraName, request.getParameter(paraName));
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        Method method = signature.getMethod();
+        // 请求的方法参数值
+        Object[] args = joinPoint.getArgs();
+        // 请求的方法参数名称
+        LocalVariableTableParameterNameDiscoverer u = new LocalVariableTableParameterNameDiscoverer();
+        String[] paramNames = u.getParameterNames(method);
+        String params = "";
+        if (args != null && paramNames != null) {
+            for (int i = 0; i < args.length; i++) {
+                params += " " + paramNames[i] + ": " + args[i];
+            }
         }
-        httpInfo.append("[URI=").append(request.getRequestURI()).append("][method=").append(request.getMethod())
-                .append("][ip=").append(request.getRemoteAddr()).append("][params=");
 
-        if (null != map && map.size() > 0) {
-            httpInfo.append(JsonUtils.objectToJson(map));
+        httpInfo.append("[{DATE=").append(DateUtils.convertDateTimeToString(new Date())).append("},{URI=").append(request.getRequestURI()).append("},{method=").append(request.getMethod())
+                .append("},{ip=").append(request.getRemoteAddr()).append("},{params=");
+
+        if (!StringUtils.isEmpty(params)) {
+            httpInfo.append(JsonUtils.objectToJson(params));
         }
-        httpInfo.append("]");
+        httpInfo.append("}]");
         logger.info("request = {}", httpInfo);
 
     }
